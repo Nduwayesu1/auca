@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Set the background color of the body */
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: white; /* Set the background color of the form */
+            padding: 20px; /* Add some padding to the form */
+            border-radius: 10px; /* Add rounded corners to the form */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a shadow to the form */
+        }
+
+        h2 {
+            text-align: center; /* Center the title */
+            color: #4CAF50; /* Set the color of the title */
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px; /* Increase the padding to make the footer taller */
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>UPDATE STUDENT FORM </h2>
+    <form id="updateForm" onsubmit="return validateForm()" action="updateStudent" method="post">
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" required><br><br>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Update">
+    </form>
+
+    <footer>
+        &copy; 2024 WebTech
+    </footer>
+
+    <script>
+        function validateForm() {
+            var studentId = document.getElementById("studentId").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (studentId == "" || username == "" || password == "") {
+                alert("All fields are required!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

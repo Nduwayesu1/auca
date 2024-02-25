@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f0f0f0; /* Change body background color to light gray */
+    }
+    h1 {
+        text-align: center;
+        color: #1e90ff; /* Change title color to blue */
+        margin-top: 20px; /* Add margin to bring the title closer to the form */
+    }
+    form {
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        background-color: #e0f2f1; /* Change form background color to light blue */
+        animation: slideIn 5s linear infinite; /* Animation added */
+    }
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+</style>
+<script>
+    function validateForm() {
+        var userId = document.getElementById('userId').value;
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        if (userId.trim() == '' || username.trim() == '' || password.trim() == '') {
+            alert('All fields are required');
+            return false;
+        }
+        return true;
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector('form');
+        const labels = form.querySelectorAll('label');
+        
+        labels.forEach(label => {
+            label.addEventListener('click', function() {
+                form.style.animationPlayState = 'paused';
+            });
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>Student Registration</h1>
+   
+    <form action="saveStudents" method="post" onsubmit="return validateForm()">
+        <label for="userId">UserId:</label><br>
+        <input type="text" id="userId" name="userId" required placeholder="Enter userId"><br>
+        
+        <label for="username">UserName:</label><br>
+        <input type="text" id="username" name="username" required placeholder="Enter username"><br>
+        
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required placeholder="Enter password"><br>
+        
+        <input type="submit" value="Save Registration"><br>
+        <a href="#">Already having an account?Login</a>
+    </form>
+
+    <footer>
+        &copy; 2024 WebTech AUCA
+    </footer>
+</body>
+</html>
